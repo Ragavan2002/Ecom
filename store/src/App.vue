@@ -1,16 +1,18 @@
 <template>
   <div>
+    <Navbar/>
     <router-view />
   </div>
 </template>
 
 <script setup>
-import { createListResource } from 'frappe-ui';
+import Navbar from './pages/Navbar.vue';
+import {watch ,inject} from "vue";
 
-const productsResource =createListResource({
-  doctype:"Product",
-  fields:["name","preview_image,price,currency"],
-  auto:true
+const cart=inject("cart")
+
+watch(cart.items,()=>{
+  console.log("watch")
+  localStorage.setItem("cart",JSON.stringify(cart))
 })
-
 </script>

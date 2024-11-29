@@ -12,6 +12,10 @@ const routes = [
     // meta: {
     //   requiresLogin: false,
     // },
+  },{
+    path:'/product/:name',
+    name:'ProductDetailsPage',
+    component:() => import('@/pages/ProductDetails.vue')
   },
   {
     path: '/product',
@@ -21,7 +25,7 @@ const routes = [
   {
     path: '/checkout',
     name: 'CheckoutPage',
-    // component: () => import('@/pages/Checkout.vue'),
+    component: () => import('@/pages/Checkout.vue'),
     meta: {
       requiresLogin: true,
     },
